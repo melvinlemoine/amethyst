@@ -1,0 +1,73 @@
+@each $breakpoint_label, $breakpoint_value in $breakpoints
+
+  @media screen and (min-width: $breakpoint_value)
+
+    .flex#{$breakpoint_label}
+      display: flex
+
+    .flex-row#{$breakpoint_label}, .flex-r#{$breakpoint_label}
+      display: flex
+      flex-direction: row
+
+      &.reverse#{$breakpoint_label}
+        flex-direction: row-reverse
+      &.noreverse#{$breakpoint_label}
+        flex-direction: row
+
+      &.v-center#{$breakpoint_label}, &.v-centered#{$breakpoint_label}
+        align-items: center
+      &.v-end#{$breakpoint_label}, &.v-right#{$breakpoint_label}
+        align-items: flex-end
+      &.v-start#{$breakpoint_label}, &.v-left#{$breakpoint_label}
+        align-items: flex-start
+      &.v-between#{$breakpoint_label}, &.v-spacebetween#{$breakpoint_label}, &.v-space-between#{$breakpoint_label}
+        align-items: space-between
+      &.v-around#{$breakpoint_label}, &.v-spacearound#{$breakpoint_label}, &.v-space-around#{$breakpoint_label}
+        align-items: space-around
+
+      &.h-center#{$breakpoint_label}, &.h-centered#{$breakpoint_label}
+        justify-content: center
+      &.h-end#{$breakpoint_label}
+        justify-content: flex-end
+      &.h-start#{$breakpoint_label}
+        justify-content: flex-start
+
+    .flex-col#{$breakpoint_label}, .flex-column#{$breakpoint_label}, .flex-c#{$breakpoint_label}, .flex-v#{$breakpoint_label}
+      display: flex
+      flex-direction: column
+
+      &.reverse#{$breakpoint_label}
+        flex-direction: column-reverse
+      &.noreverse#{$breakpoint_label}
+        flex-direction: column
+
+      &.v-center#{$breakpoint_label}, &.v-centered#{$breakpoint_label}
+        justify-content: center
+      &.v-end#{$breakpoint_label}
+        justify-content: flex-end
+      &.v-start#{$breakpoint_label}
+        justify-content: flex-start
+
+      &.h-center#{$breakpoint_label}, &.h-centered#{$breakpoint_label}
+        align-items: center
+      &.h-end#{$breakpoint_label}
+        align-items: flex-end
+      &.h-start#{$breakpoint_label}
+        align-items: flex-start
+
+    .wrap#{$breakpoint_label}
+      flex-wrap: wrap
+
+    .no-wrap#{$breakpoint_label}, .nowrap#{$breakpoint_label}
+      flex-wrap: nowrap
+
+    .space
+      &-around#{$breakpoint_label}
+        justify-content: space-around
+      &-between#{$breakpoint_label}
+        justify-content: space-between
+
+    .content-centered#{$breakpoint_label}, .content-center#{$breakpoint_label}, .cc#{$breakpoint_label}
+      display: flex
+      justify-content: center
+      align-items: center
