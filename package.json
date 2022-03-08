@@ -1,0 +1,52 @@
+{
+  "name": "amethyst",
+  "version": "0.1.0",
+  "homepage": "https://amethystcss.io",
+  "author": {
+    "name": "Melvin Lemoine",
+    "email": "contact@melvin-lemoine.me",
+    "url": "https://melvin-lemoine.me"
+  },
+  "description": "Modern CSS framework based on Flexbox",
+  "main": "sass/amethyst.sass",
+  "unpkg": "css/amethyst.css",
+  "style": "css/amethyst.min.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melvinlemoine/amethystcss.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "sass",
+    "flexbox",
+    "responsive",
+    "framework"
+  ],
+  "bugs": {
+    "url": "https://github.com/melvinlemoine/amethystcss/issues"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.1",
+    "clean-css-cli": "^5.5.0",
+    "node-sass": "^7.0.1",
+    "postcss-cli": "^9.1.0",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "build": "npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output css/amethyst.css css/amethyst.css",
+    "build-cleancss": "cleancss -o css/amethyst.min.css css/amethyst.css",
+    "build-sass": "node-sass --output-style expanded --source-map true sass/amethyst.sass css/amethyst.css",
+    "clean": "rimraf css",
+    "deploy": "npm run clean && npm run build",
+    "watch": "npm run build-sass -- --watch"
+  },
+  "files": [
+    "css",
+    "sass",
+    "bulma.sass",
+    "LICENSE",
+    "README.md"
+  ]
+}
