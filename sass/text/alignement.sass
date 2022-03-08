@@ -1,0 +1,12 @@
+@each $breakpoint_label, $breakpoint_value in $breakpoints
+
+    @media screen and (min-width: $breakpoint_value)
+        .text, .textalign, .ta
+            &-left#{$breakpoint_label}
+                text-align: left
+            &-center#{$breakpoint_label}, &-centered#{$breakpoint_label}
+                text-align: center
+            &-right#{$breakpoint_label}
+                text-align: right
+            &-justify#{$breakpoint_label}, &-justified#{$breakpoint_label}
+                text-align: justify
