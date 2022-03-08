@@ -1,0 +1,89 @@
+@keyframes spinAround
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(359deg)
+a.button
+    text-decoration: none
+    // color: initial
+
+.button
+    display: inline-flex
+    position: relative
+    border: 0
+    cursor: pointer
+    border: 1px solid transparent
+    // padding-left: .75em
+    // padding-right: .75em
+    // padding-top: calc(.375em - 1px)
+    // padding-bottom: calc(.375em - 1px)
+    justify-content: center
+    align-items: center
+    line-height: 1.5
+    // font-size: 1rem
+    outline: none
+    text-align: center
+    font-size: $buttons_fontsize-normal
+    padding: $buttons_paddingy-normal $buttons_paddingx-normal
+
+    & .icon, & .icon.is-small, & .icon.is-medium, & .icon.is-large
+        min-height: 1.5rem
+        min-width: 1.5rem
+
+    & .icon
+        display: inline-flex
+        justify-content: center
+        align-items: center
+
+        margin-left: calc(-#{$buttons_paddingx-normal} + 5%)
+        margin-right: 0.25rem
+
+    &.is-rounded
+        border-radius: 25px
+
+    &.is-bordered
+        border-radius: 5px
+
+    &.is-loading
+        color: transparent !important
+        &::after
+            animation: spinAround 500ms infinite linear
+            border: 2px solid white
+            border-radius: 290486px
+            border-right-color: transparent
+            border-top-color: transparent
+            content: ""
+            display: block
+            height: 1em
+            position: relative
+            width: 1em
+            pointer-events: none
+            position: absolute
+            left: calc(50% - (1em / 2))
+            top: calc(50% - (1em / 2))
+            position: absolute !important
+
+    &.is-white, &.is-light
+        &::after
+            border: 2px solid $light
+
+    @each $breakpoint_label, $breakpoint_value in $breakpoints
+
+        @media screen and (min-width: $breakpoint_value)
+            &.is-small#{$breakpoint_label}
+                font-size: $buttons_fontsize-small
+
+            &.is-normal#{$breakpoint_label}
+                font-size: $buttons_fontsize-normal
+                padding: $buttons_paddingy-normal $buttons_paddingx-normal
+
+            &.is-medium#{$breakpoint_label}
+                font-size: $buttons_fontsize-medium
+
+            &.is-large#{$breakpoint_label}
+                font-size: $buttons_fontsize-large
+
+    @each $color, $value in $colors
+        &.is-#{$color}
+            background-color: $value
+            // color: $value
